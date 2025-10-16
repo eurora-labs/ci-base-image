@@ -1,4 +1,4 @@
-FROM ubuntu:jammy-20240627.1 AS base
+FROM ubuntu:22.04 AS base
 # add unzip
 RUN apt-get update && \
     apt-get install -y \
