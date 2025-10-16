@@ -8,7 +8,6 @@ RUN apt-get update && \
     file \
     libssl-dev \
     libgtk-3-dev \
-    libappindicator3-dev \
     librsvg2-dev \
     libwebkit2gtk-4.1-0 \
     libwebkit2gtk-4.1-dev \
