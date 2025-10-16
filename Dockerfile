@@ -6,6 +6,7 @@ RUN apt-get update && \
     curl \
     wget \
     file \
+    clang \
     libssl-dev \
     libgtk-3-dev \
     librsvg2-dev \
