@@ -20,7 +20,9 @@ RUN apt-get update && \
     libpipewire-0.3-dev \
     libayatana-appindicator3-dev \
     jq tar bash libbrotli-dev brotli imagemagick git cmake \
-    unzip git-lfs 
+    unzip git-lfs \
+    webkit2gtk-driver ffmpeg xvfb \
+    && rm -rf /var/lib/apt/lists/*
 
 
 RUN curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain nightly -y
