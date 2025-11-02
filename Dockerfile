@@ -1,7 +1,7 @@
 FROM ubuntu:24.04 AS base
 # add unzip
 RUN apt-get update && \
-    apt-get install -y \
+    apt-get install -y --no-install-recommends \
     build-essential \
     curl \
     wget \
@@ -22,10 +22,14 @@ RUN apt-get update && \
     jq tar bash libbrotli-dev brotli imagemagick git cmake \
     unzip git-lfs \
     webkit2gtk-driver ffmpeg xvfb \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
-RUN curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain nightly -y
+RUN curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain nightly \
+    --profile minimal \
+    -y \
+    && rm -rf /root/.cargo/registry /root/.cargo/git
 
 ENV PATH="/root/.cargo/bin:${PATH}"
 
