@@ -2,6 +2,7 @@ FROM ubuntu:24.04 AS base
 # add unzip
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+    ca-certificates \
     build-essential \
     curl \
     wget \
