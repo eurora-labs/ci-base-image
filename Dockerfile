@@ -31,6 +31,10 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain nightly \
     -y \
     && rm -rf /root/.cargo/registry /root/.cargo/git
 
+COPY free_disk_space.sh /free_disk_space.sh
+RUN chmod +x /free_disk_space.sh
+RUN /free_disk_space.sh
+
 ENV PATH="/root/.cargo/bin:${PATH}"
 
 WORKDIR /ci
